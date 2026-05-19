@@ -1,0 +1,58 @@
+.cta {
+  padding: 4rem 0;
+}
+
+.box {
+  background: linear-gradient(135deg, var(--navy) 0%, #2d2370 100%);
+  color: var(--off-white);
+  padding: 3.5rem 2rem;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(
+    circle at top left,
+    rgba(91, 55, 17, 0.35),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.box h2 {
+  color: var(--off-white);
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.box p {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 580px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.actions :global(.btn-secondary) {
+  border-color: var(--off-white) !important;
+  color: var(--off-white) !important;
+  background: transparent !important;
+}
+
+.actions :global(.btn-secondary):hover {
+  background: var(--off-white) !important;
+  color: var(--navy) !important;
+}

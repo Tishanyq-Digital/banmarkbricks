@@ -1,0 +1,96 @@
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, #2d2370 100%);
+  color: var(--off-white);
+  padding: 5rem 0 4rem;
+  text-align: center;
+}
+
+.header h1 {
+  color: var(--off-white);
+  margin-bottom: 1rem;
+}
+
+.header p {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.14);
+  color: #d2a878;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.infoCard {
+  background: var(--off-white);
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--brown);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.infoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.infoCard h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brown);
+  margin-bottom: 0.6rem;
+}
+
+.infoCard p {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.infoCard a {
+  color: var(--navy);
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.infoCard a:hover {
+  color: var(--brown);
+}
+
+.callRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.mapEmbed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(33, 25, 82, 0.08);
+  background: var(--off-white);
+}
+
+.mapEmbed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}

@@ -1,0 +1,107 @@
+.hero {
+  background: linear-gradient(180deg, var(--off-white) 0%, var(--beige) 100%);
+  padding: 4rem 0 5rem;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.heroText .eyebrow {
+  display: inline-block;
+  background: rgba(91, 55, 17, 0.1);
+  color: var(--brown);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.heroText h1 {
+  margin-bottom: 1.25rem;
+}
+
+.accent {
+  color: var(--brown);
+}
+
+.heroText p {
+  font-size: 1.05rem;
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.heroImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.reason {
+  background: var(--off-white);
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(33, 25, 82, 0.06);
+}
+
+.reason:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.reasonIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--navy);
+  color: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.reason:hover .reasonIcon {
+  transform: translateY(-4px) rotate(-4deg);
+  background: var(--brown);
+}
+
+.reason h3 {
+  margin-bottom: 0.5rem;
+}
+
+.center {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 860px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+  }
+
+  .heroImage {
+    aspect-ratio: 16 / 10;
+  }
+}
