@@ -4,9 +4,17 @@ import Reveal from "@/components/Reveal";
 import styles from "./about.module.css";
 
 export const metadata = {
-  title: "About — Banmark Bricks",
+  title: "About Banmark Bricks — Harare's Trusted Bricks Manufacturer",
   description:
-    "Learn about Banmark Bricks — a trusted Harare-based bricks manufacturer and supplier of building materials.",
+    "Banmark Bricks is a Harare-based manufacturer and supplier of quality bricks, sand, gravel and stones. Learn about our story, values and what we supply.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Banmark Bricks — Harare's Trusted Bricks Manufacturer",
+    description:
+      "Banmark Bricks is a Harare-based manufacturer and supplier of quality bricks, sand, gravel and stones.",
+    url: "/about",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {

@@ -185,41 +185,27 @@ p {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ---------- Reveal (pure CSS, runs on render) ---------- */
+/* ---------- Reveal-on-scroll ---------- */
+/* Default (no-JS): elements are visible — no animation, no FOUC.            */
+/* When <html class="js-on">: elements start hidden and animate on .is-visible */
 
-@keyframes revealUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes revealLeft {
-  from { opacity: 0; transform: translateX(-48px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes revealRight {
-  from { opacity: 0; transform: translateX(48px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes revealZoom {
-  from { opacity: 0; transform: scale(0.9); }
-  to   { opacity: 1; transform: scale(1); }
-}
-@keyframes revealFade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.reveal {
-  animation-duration: 0.9s;
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  animation-fill-mode: both;
+.js-on .reveal {
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
-.reveal-up    { animation-name: revealUp; }
-.reveal-left  { animation-name: revealLeft; }
-.reveal-right { animation-name: revealRight; }
-.reveal-zoom  { animation-name: revealZoom; }
-.reveal-fade  { animation-name: revealFade; }
+.js-on .reveal-up    { transform: translateY(40px); }
+.js-on .reveal-left  { transform: translateX(-48px); }
+.js-on .reveal-right { transform: translateX(48px); }
+.js-on .reveal-zoom  { transform: scale(0.9); }
+.js-on .reveal-fade  { transform: none; }
+
+.js-on .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
 
 /* Hero entrance animations (no JS) */
 .anim-hero-text > * {
@@ -239,6 +225,16 @@ p {
 
 .anim-float {
   animation: floatY 4.5s ease-in-out infinite;
+}
+
+/* Subtle continuous pulse on primary CTAs so the page never feels static */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(91, 55, 17, 0.45); }
+  50%      { box-shadow: 0 0 0 12px rgba(91, 55, 17, 0); }
+}
+
+.btn-primary {
+  animation: ctaPulse 2.4s ease-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

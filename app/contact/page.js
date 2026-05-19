@@ -2,9 +2,17 @@ import Reveal from "@/components/Reveal";
 import styles from "./contact.module.css";
 
 export const metadata = {
-  title: "Contact — Banmark Bricks",
+  title: "Contact Banmark Bricks — Call 0778 933 858 · Plot 20 Raynham, Harare",
   description:
-    "Get in touch with Banmark Bricks. Call us or visit our yard at Plot 20 Raynham, Harare.",
+    "Contact Banmark Bricks in Harare for quotes on bricks, sand, gravel and stones. Call 0778 933 858 or 0718 201 581. Visit us at Plot 20 Raynham, Harare.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Banmark Bricks — Harare, Zimbabwe",
+    description:
+      "Call 0778 933 858 or 0718 201 581. Visit Plot 20 Raynham, Harare for bricks, sand, gravel and stones.",
+    url: "/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

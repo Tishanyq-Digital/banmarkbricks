@@ -5,14 +5,51 @@ import products from "@/data/products";
 import styles from "./products.module.css";
 
 export const metadata = {
-  title: "Products & Prices — Banmark Bricks",
+  title:
+    "Bricks, Sand, Stones & Gravel Prices in Harare — Banmark Bricks",
   description:
-    "Browse Banmark Bricks' full range of bricks, sand and stones with up-to-date prices.",
+    "View current prices for plum rustic, Botswana face, red face, loadbearing and common bricks, plus pit sand, river sand, gravel and 3/4 stones in Harare.",
+  alternates: { canonical: "/products" },
+  openGraph: {
+    title:
+      "Bricks, Sand, Stones & Gravel Prices in Harare — Banmark Bricks",
+    description:
+      "Up-to-date prices on bricks, sand, gravel and stones from Banmark Bricks, Harare.",
+    url: "/products",
+    type: "website",
+  },
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: products.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Product",
+      name: p.name,
+      description: p.description,
+      image: `https://benmarkbricks.co.zw${p.image}`,
+      brand: { "@type": "Brand", name: "Banmark Bricks" },
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        price: p.price.replace("$", ""),
+        availability: "https://schema.org/InStock",
+        seller: { "@type": "Organization", name: "Banmark Bricks" },
+      },
+    },
+  })),
 };
 
 export default function ProductsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <section className={styles.header}>
         <div className={`container anim-hero-text`}>
           <span className={styles.eyebrow}>Our Products</span>
