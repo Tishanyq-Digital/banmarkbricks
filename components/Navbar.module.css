@@ -10,7 +10,7 @@
 .inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.9rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,8 +24,8 @@
 }
 
 .logo {
-  width: 120px;
-  height: 120px;
+  width: 84px;
+  height: 84px;
   object-fit: contain;
 }
 

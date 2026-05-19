@@ -17,8 +17,8 @@ export default function Navbar() {
           <Image
             src="/images/logo.png"
             alt="Banmark Bricks logo"
-            width={120}
-            height={120}
+            width={84}
+            height={84}
             className={styles.logo}
           />
         </Link>
