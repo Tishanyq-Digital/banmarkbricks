@@ -249,17 +249,7 @@ p {
   animation: ctaPulse 2.4s ease-out infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .anim-hero-text > *,
-  .anim-hero-image,
-  .anim-float {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}
+/* Reduced-motion override removed — animations always play. */
 
 /* Stagger helpers — apply alongside .reveal */
 .delay-1  { animation-delay: 0.1s; }
