@@ -1,7 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import RevealInit from "@/components/RevealInit";
 
 const SITE_URL = "https://benmarkbricks.co.zw";
 
@@ -142,16 +141,28 @@ const jsonLd = {
   ].map((p) => ({ "@type": "Offer", itemOffered: { "@type": "Product", name: p } })),
 };
 
+// Keyframes injected directly into <head> — guarantees Reveal animations
+// are available regardless of CSS module / bundling behavior.
+const revealKeyframes = `
+@keyframes revealUp    { from { opacity: 0; transform: translateY(80px); }  to { opacity: 1; transform: translateY(0); } }
+@keyframes revealLeft  { from { opacity: 0; transform: translateX(-90px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes revealRight { from { opacity: 0; transform: translateX(90px); }  to { opacity: 1; transform: translateX(0); } }
+@keyframes revealZoom  { from { opacity: 0; transform: scale(0.82); }       to { opacity: 1; transform: scale(1); } }
+@keyframes revealFade  { from { opacity: 0; }                                to { opacity: 1; } }
+`;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: revealKeyframes }} />
+      </head>
       <body>
         {/* Local Business structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <RevealInit />
         <Navbar />
         <main>{children}</main>
         <Footer />

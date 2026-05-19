@@ -185,27 +185,39 @@ p {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ---------- Reveal-on-scroll ---------- */
-/* Default (no-JS): elements are visible — no animation, no FOUC.            */
-/* When <html class="js-on">: elements start hidden and animate on .is-visible */
+/* ---------- Reveal entrance animations ---------- */
+/* Pure CSS keyframes — run on render so they ALWAYS play visibly on page load. */
 
-.js-on .reveal {
-  opacity: 0;
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(80px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes revealLeft {
+  from { opacity: 0; transform: translateX(-90px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes revealRight {
+  from { opacity: 0; transform: translateX(90px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes revealZoom {
+  from { opacity: 0; transform: scale(0.82); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes revealFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.reveal {
   will-change: opacity, transform;
 }
 
-.js-on .reveal-up    { transform: translateY(40px); }
-.js-on .reveal-left  { transform: translateX(-48px); }
-.js-on .reveal-right { transform: translateX(48px); }
-.js-on .reveal-zoom  { transform: scale(0.9); }
-.js-on .reveal-fade  { transform: none; }
-
-.js-on .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0) translateX(0) scale(1);
-}
+.reveal-up    { animation: revealUp   1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal-left  { animation: revealLeft 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal-right { animation: revealRight 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal-zoom  { animation: revealZoom 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal-fade  { animation: revealFade 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
 /* Hero entrance animations (no JS) */
 .anim-hero-text > * {

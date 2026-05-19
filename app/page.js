@@ -3,6 +3,7 @@ import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
+import Carousel from "@/components/Carousel";
 import products from "@/data/products";
 import styles from "./page.module.css";
 
@@ -34,6 +35,9 @@ export default function HomePage() {
 
   return (
     <>
+      {/* Carousel banner */}
+      <Carousel />
+
       {/* Hero */}
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>

@@ -1,14 +1,20 @@
 /**
- * Reveal — applies a pure-CSS entrance animation to children.
- *
- * Pure CSS (no JS / no IntersectionObserver) so it works during SSR and
- * cannot be broken by hydration issues.
+ * Reveal — entrance animation wrapper that uses inline styles so
+ * nothing in the CSS pipeline can suppress it.
  *
  * Props:
  *   variant: "up" | "fade" | "left" | "right" | "zoom" (default: "up")
  *   delay:   ms before the animation starts (default: 0)
  *   as:      element tag (default: "div")
  */
+const NAME_BY_VARIANT = {
+  up: "revealUp",
+  left: "revealLeft",
+  right: "revealRight",
+  zoom: "revealZoom",
+  fade: "revealFade",
+};
+
 export default function Reveal({
   children,
   variant = "up",
@@ -18,12 +24,20 @@ export default function Reveal({
   style = {},
   ...rest
 }) {
-  const cls = ["reveal", `reveal-${variant}`, className].filter(Boolean).join(" ");
-  const mergedStyle =
-    delay > 0 ? { animationDelay: `${delay}ms`, ...style } : style;
+  const animationName = NAME_BY_VARIANT[variant] || NAME_BY_VARIANT.up;
+
+  const mergedStyle = {
+    animationName,
+    animationDuration: "1s",
+    animationTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+    animationFillMode: "both",
+    animationDelay: `${delay}ms`,
+    willChange: "opacity, transform",
+    ...style,
+  };
 
   return (
-    <Tag className={cls} style={mergedStyle} {...rest}>
+    <Tag className={className} style={mergedStyle} {...rest}>
       {children}
     </Tag>
   );
